@@ -1,0 +1,32 @@
+step01.lua --just draw a solid white rectangle
+step02.lua --just draw a block with saved size, location, and color
+step03.lua --try moving a box in update
+step04.lua --save the block stuff in load so we can then move a box in update
+step05.lua --stop the box from going "too" low
+step06.lua --stop the block from going off the bottom of the screen
+step07.lua --stop the block from going off the bottom or right side of the screen
+step08.lua --don't just stop the block from going off the bottom or right side of the screen but make it bounce
+step09.lua --make the block bounce on all edges of the screen
+step10.lua --add the paddle
+step11.lua --prepare for collisions!
+step12.lua --save new locations and slow it down
+step13.lua --add bounceOnScreen and empty bounceOnPaddle
+step14.lua --very basic bounceOnPaddle
+step15.lua --prepare to fix bouncing on thin error - just stop on collision
+step16.lua --fix stopping on thin error part1
+step17.lua --fix stopping on thin error part2
+step18.lua --fix stopping on thin error part3 and add reset block
+step19.lua --reset game and move paddle
+step20.lua --keyboard repeat for move paddle
+step21.lua --improved keyboard repeat
+step22.lua --paddle bounds and escape to quit
+step23.lua --block bounce on paddle collision - prep1 get block edges
+step24.lua --block bounce on paddle collision - prep2 use tables for colors
+step25.lua --block bounce on paddle collision - prep3 use tables for block and paddle
+step26.lua --block bounce on paddle collision - prep4 create edges
+step27.lua --block bounce on paddle collision - handle collision during paddle movement
+step28.lua --disable bounce on bottom screen
+step29.lua --draw bricks
+step30.lua --handle single brick
+step31.lua --handle bricks - seperate bricks
+step32.lua --handle bricks - collide with bricks
