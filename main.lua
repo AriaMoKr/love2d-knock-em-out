@@ -80,14 +80,25 @@ function bounceOnRect(rect)
     --check horizontal collision:
     leftEdgeCollision = block.PosX < rect.PosX
     rightEdgeCollision = block.PosX + block.Width > rect.PosX + rect.Width
+    
+    -- check vertical collision:
+    topEdgeCollision = block.PosY < rect.PosY
+    bottomEdgeCollision = block.PosY + block.Height > rect.PosY + rect.Height
+
+    horizontalCollision = leftEdgeCollision or rightEdgeCollision
+    verticalCollision = topEdgeCollision or bottomEdgeCollision
+
+    if horizontalCollision and verticalCollision then
+      block.VelocityX = -block.VelocityX
+      block.VelocityY = -block.VelocityY
+      return
+    end
+
     if leftEdgeCollision or rightEdgeCollision then
       block.VelocityX = -block.VelocityX
       return
     end
 
-    -- check vertical collision:
-    topEdgeCollision = block.PosY < rect.PosY
-    bottomEdgeCollision = block.PosY + block.Height > rect.PosY + rect.Height
     if topEdgeCollision or bottomEdgeCollision then
       block.VelocityY = -block.VelocityY
       return
