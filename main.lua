@@ -73,39 +73,25 @@ function doesCollide(rect)
   return not (outsideTop or outsideBottom or outsideLeft or outsideRight)
 end
 
---TODO cleanup - just dupe of bounceOnPaddle
 function bounceOnRect(rect)
   if doesCollide(rect) then
     
-    --check horizontal collision:
-    leftEdgeCollision = block.PosX < rect.PosX
-    rightEdgeCollision = block.PosX + block.Width > rect.PosX + rect.Width
-    
-    -- check vertical collision:
-    topEdgeCollision = block.PosY < rect.PosY
-    bottomEdgeCollision = block.PosY + block.Height > rect.PosY + rect.Height
+    --from .net intersection
+    x = math.max(block.PosX, rect.PosX)
+    num1 = math.min(block.PosX + block.Width, rect.PosX + rect.Width)
+    y = math.max(block.PosY, rect.PosY)
+    num2 = math.min(block.PosY + block.Height, rect.PosY + rect.Height);
 
-    horizontalCollision = leftEdgeCollision or rightEdgeCollision
-    verticalCollision = topEdgeCollision or bottomEdgeCollision
+    intX = num1 - x
+    intY = num2 - y
 
-    if horizontalCollision and verticalCollision then
+    delta = 10
+    if intX - intY < delta then
       block.VelocityX = -block.VelocityX
+    end
+    if intY - intX < delta then
       block.VelocityY = -block.VelocityY
-      return
     end
-
-    if leftEdgeCollision or rightEdgeCollision then
-      block.VelocityX = -block.VelocityX
-      return
-    end
-
-    if topEdgeCollision or bottomEdgeCollision then
-      block.VelocityY = -block.VelocityY
-      return
-    end
-        
-    block.VelocityX = 0
-    block.VelocityY = 0
   end
 end
 
