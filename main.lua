@@ -95,6 +95,11 @@ function bounceOnRect(rect)
   end
 end
 
+function bounceOnPaddle(paddle)
+  bounceOnRect(paddle)
+end
+
+
 function handleKeyboard(dt)
   newPaddleX = paddle.PosX
   
@@ -121,9 +126,9 @@ function moveBlock(dt)
   newBlockX = block.PosX + block.VelocityX * dt
   newBlockY = block.PosY + block.VelocityY * dt
   
-  --if not doesCollide() then
-  block.PosX = newBlockX
-  block.PosY = newBlockY
+  --if not doesCollide(paddle) then
+    block.PosX = newBlockX
+    block.PosY = newBlockY
   --end
 end
 
@@ -142,7 +147,7 @@ function love.update(dt)
   moveBlock(dt)
   
   bounceOnBricks()
-  bounceOnRect(paddle)
+  bounceOnPaddle(paddle)
   bounceOnScreen()
   
   handleKeyboard(dt)
